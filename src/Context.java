@@ -1,5 +1,7 @@
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -13,12 +15,21 @@ public class Context {
     }
 
     private void create(){
-        List<MyElement> knownElements  = MyApp.getKnownElements().stream()
-                .filter(element -> Arrays.stream(this.words).allMatch(s -> s == element.getName()))
-                .collect(Collectors.toList());
 
-        for (MyElement elem : knownElements) {
-            System.out.println(elem.getName());
+        Set<MyElement> knownElements  = MyApp.getKnownElements();
+        System.out.println(knownElements);
+        Set<MyElement> myElements = new HashSet<MyElement>();
+        for (String word: words) {
+            try {
+                myElements.add(knownElements.stream().filter(element -> word.equals(element.getName())).findAny().orElseThrow());
+            }
+            catch (Exception e) {
+                System.out.println("Unknown element.");
+            }
         }
+
+        for (MyElement elem : myElements) {
+            System.out.println(elem.getName());
+    }
     }
 }
