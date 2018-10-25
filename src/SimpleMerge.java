@@ -9,10 +9,11 @@ public class SimpleMerge extends NonTerminalExpression{
 
     @Override
     public AbstractExpression interpret(){
-        return new MyElement( "Hello",  "World");
+        return new MyElement( "Hello",  1);
     }
-
+    /*
     private String generateLinkAlias(){
         return firstelem.getID() + secondelem.getID();
     }
+    */
 }

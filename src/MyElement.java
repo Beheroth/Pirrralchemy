@@ -1,8 +1,8 @@
 public class MyElement extends TerminalExpression {
     private String name;
-    private String id;
+    private int id;
 
-    public MyElement(String name, String id){
+    public MyElement(String name, int id){
         this.name = name;
         this.id = id;
     }
@@ -11,10 +11,10 @@ public class MyElement extends TerminalExpression {
         return this.name;
     }
 
-    public String getID(){
+    public int getID(){
         return this.id;
     }
-    public void setID(String id){
+    public void setID(int id){
         this.id = id;
     }
 

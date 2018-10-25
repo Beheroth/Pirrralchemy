@@ -5,9 +5,14 @@ public class Client {
     public static void main (String[] args) {
 
         //Here implement load database
+        MyApp.Load();
 
         //Here display the known elements
-
+        /*
+        for (MyElement elem: MyApp.getKnownElements()) {
+            System.out.print(elem.getName());
+        }
+        */
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Elements to merge: ");
         String s = scanner.next();

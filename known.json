@@ -1,0 +1,20 @@
+{
+  "knownElements":[
+    {
+      "name" : "fire",
+      "id" : 1
+    },
+    {
+      "name" : "water",
+      "id" : 2
+    },
+    {
+      "name" : "earth",
+      "id" : 3
+    },
+    {
+      "name" : "air",
+      "id" : 4
+    }
+  ]
+}
