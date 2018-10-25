@@ -7,12 +7,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.File;
 import java.lang.reflect.Type;
 import java.util.HashSet;
-import java.util.Set;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.lang.reflect.Type;
-import com.google.gson.reflect.TypeToken;
+
 
 
 public final class MyApp {
@@ -20,15 +15,15 @@ public final class MyApp {
     private static HashSet<MyElement> unknownElements = new HashSet<MyElement>();
     private static HashSet<Link> links = new HashSet<Link>();
 
-    public static Set<MyElement> getKnownElements() {
+    public static HashSet<MyElement> getKnownElements() {
         return knownElements;
     }
 
-    public static Set<MyElement> getUnknownElements() {
+    public static HashSet<MyElement> getUnknownElements() {
         return unknownElements;
     }
 
-    public static Set<Link> getLinks() {
+    public static HashSet<Link> getLinks() {
         return links;
     }
 
