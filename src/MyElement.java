@@ -26,4 +26,9 @@ public class MyElement extends TerminalExpression {
     public AbstractExpression interpret(){
         return this;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

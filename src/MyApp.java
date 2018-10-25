@@ -6,28 +6,24 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.lang.reflect.Type;
-import java.util.Set;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.lang.reflect.Type;
-import com.google.gson.reflect.TypeToken;
+import java.util.HashSet;
+
 
 
 public final class MyApp {
-    private static Set<MyElement> knownElements;
-    private static Set<MyElement> unknownElements;
-    private static Set<Link> links;
+    private static HashSet<MyElement> knownElements = new HashSet<MyElement>();
+    private static HashSet<MyElement> unknownElements = new HashSet<MyElement>();
+    private static HashSet<Link> links = new HashSet<Link>();
 
-    public static Set<MyElement> getKnownElements() {
+    public static HashSet<MyElement> getKnownElements() {
         return knownElements;
     }
 
-    public static Set<MyElement> getUnknownElements() {
+    public static HashSet<MyElement> getUnknownElements() {
         return unknownElements;
     }
 
-    public static Set<Link> getLinks() {
+    public static HashSet<Link> getLinks() {
         return links;
     }
 
@@ -38,9 +34,9 @@ public final class MyApp {
         JSONObject unknownJson =  loadJSON("unknown.json");
         JSONObject linksJson =  loadJSON("links.json");
 
-        jsonToSet(knownElements, knownJson, "knownElements");
-        jsonToSet(unknownElements, unknownJson, "unknownElements");
-        jsonToSet(links, linksJson, "links");
+        jsonToSetOfElements(knownElements, knownJson, "knownElements");
+        jsonToSetOfElements(unknownElements, unknownJson, "unknownElements");
+        jsonToSetOfLinks(links, linksJson, "links");
     }
     private MyApp () {
         Load();
@@ -58,16 +54,33 @@ public final class MyApp {
         }
     }
 
-    private static <T> void jsonToSet(Set<T> outSet, JSONObject jsonIn, String keyIn) {
+    private static void jsonToSetOfElements(HashSet<MyElement> outSet, JSONObject jsonIn, String keyIn) {
 
         try {
             JSONArray array = jsonIn.getJSONArray(keyIn);
-            Type listType = new TypeToken<List<T>>(){}.getType();
-            List<T> yourClassList = new Gson().fromJson(array.toString(), listType);
-            outSet.addAll(yourClassList);
+            Type type = new TypeToken<MyElement>(){}.getType();
+            for (int i = 0; i < array.length(); i ++) {
+                MyElement target = new Gson().fromJson(array.optJSONObject(i).toString(), type);
+                outSet.add(target);
+            }
         }
         catch (Exception e) {
-            System.out.print(e);
+            System.out.println(e);
+        }
+    }
+
+    private static  void jsonToSetOfLinks(HashSet<Link> outSet, JSONObject jsonIn, String keyIn) {
+
+        try {
+            JSONArray array = jsonIn.getJSONArray(keyIn);
+            Type type = new TypeToken<Link>(){}.getType();
+            for (int i = 0; i < array.length(); i ++) {
+                Link target = new Gson().fromJson(array.optJSONObject(i).toString(), type);
+                outSet.add(target);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
         }
     }
 }
