@@ -8,7 +8,7 @@ public class Link {
 
     private Set<Integer> ids;
 
-    public int getCreated() {
+    public Integer getCreated() {
         return created;
     }
 
@@ -18,7 +18,7 @@ public class Link {
         this.ids = ids;
     }
 
-    public Link(Set<Integer> ids, int created){
+    public Link(Set<Integer> ids, Integer created){
         this.created = created;
         this.ids = ids;
     }
