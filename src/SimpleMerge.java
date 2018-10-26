@@ -9,21 +9,22 @@ public class SimpleMerge extends NonTerminalExpression{
     }
 
     @Override
-    public AbstractExpression interpret(){
+    public AbstractExpression interpret() {
         Set<Integer> ids = new HashSet<Integer>();
 
-        for(MyElement elem : Elements){
+        for (MyElement elem : Elements) {
             ids.add(elem.getID());
         }
 
         Link fakeLink = new Link(ids);
 
-        Link foundLink = MyApp.getLinks().stream().filter(link -> fakeLink.compare(link)).findAny().orElseThrow();
-
-        MyElement out = MyApp.getUnknownElements().stream().filter(element -> element.getID() == foundLink.getCreated()).findAny().orElseThrow();
-
-        return out;
+        try {
+            Link foundLink = MyApp.getLinks().stream().filter(link -> fakeLink.compare(link)).findAny().orElseThrow();
+            MyElement out = MyApp.getUnknownElements().stream().filter(element -> element.getID().equals(foundLink.getCreated())).findAny().orElseThrow();
+            return out;
+        } catch (Exception e) {
+            System.out.println("Unknown Link");
+            return null;
+        }
     }
-
-
 }
