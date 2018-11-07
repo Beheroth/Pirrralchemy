@@ -1,6 +1,6 @@
 public class MyElement extends TerminalExpression {
     private String name;
-    private int id;
+    private Integer id;
 
     public MyElement(String name, int id){
         this.name = name;
@@ -11,7 +11,7 @@ public class MyElement extends TerminalExpression {
         return this.name;
     }
 
-    public int getID(){
+    public Integer getID(){
         return this.id;
     }
     public void setID(int id){

@@ -1,5 +1,4 @@
-{
-  "knownElements":[
+[
     {
       "name" : "fire",
       "id" : 1
@@ -16,5 +15,4 @@
       "name" : "air",
       "id" : 4
     }
-  ]
-}
+]
