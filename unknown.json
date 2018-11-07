@@ -1,6 +1,66 @@
 [
-    {
-      "name" : "mud",
-      "id" : 5
-    }
+  {
+    "name" : "mud",
+    "id" : 5
+  },
+  {
+    "name" : "steam",
+    "id" : 6
+  },
+  {
+    "name" : "energy",
+    "id" : 7
+  },
+  {
+    "name" : "lava",
+    "id" : 8
+  },
+  {
+    "name" : "puddle",
+    "id" : 9
+  },
+  {
+    "name" : "hill",
+    "id" : 10
+  },
+  {
+    "name" : "mountain",
+    "id" : 11
+  },
+  {
+    "name" : "river",
+    "id" : 12
+  },
+  {
+    "name" : "land",
+    "id" : 13
+  },
+  {
+    "name" : "continent",
+    "id" : 14
+  },
+  {
+    "name" : "pond",
+    "id" : 15
+  },
+  {
+    "name" : "lake",
+    "id" : 16
+  },
+  {
+    "name" : "sea",
+    "id" : 17
+  },
+  {
+    "name" : "ocean",
+    "id" : 18
+  },
+  {
+    "name" : "island",
+    "id" : 19
+  },
+  {
+    "name" : "planet",
+    "id" : 20
+  }
 ]
