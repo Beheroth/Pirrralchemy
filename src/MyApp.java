@@ -17,42 +17,48 @@ public final class MyApp {
     private static String[] paths = new String[]{"known.json", "unknown.json", "links.json"};
     private static JSONArray[] jsonObjectsBuffer = new JSONArray[3];
 
+    // Gets an HashSet of the elements known by the user.
     public static HashSet<MyElement> getKnownElements() {
         return knownElements;
     }
 
+    // Gets an HashSet of the elements unknown by the user.
     public static HashSet<MyElement> getUnknownElements() {
         return unknownElements;
     }
 
+    // Gets an HashSet of the links between the elements.
     public static HashSet<Link> getLinks() {
         return links;
     }
 
-    public static void load()
-    {
+    // Loads the JSON (links, unknownElements, knownElements).
+    public static void load() {
         System.out.println("Load DB");
         int i = 0;
         for (String path: paths) {
             jsonObjectsBuffer[i] = loadJSON(path);
             i++;
         }
-
         jsonToSetOfElements(knownElements, jsonObjectsBuffer[0]);
         jsonToSetOfElements(unknownElements, jsonObjectsBuffer[1]);
         jsonToSetOfLinks(links, jsonObjectsBuffer[2]);
         askIfWin();
     }
 
+    // Closes the app if the game is won.
     public static void askIfWin() {
         if (unknownElements.size()==0) {
             System.out.println("You finished the game.");
             System.exit(42);
         }
     }
+
+    // Private constructor for static class.
     private MyApp () {
     }
 
+    // Loads the jsons.
     private static JSONArray loadJSON(String path) {
         try {
             File file = new File(path);
@@ -65,6 +71,7 @@ public final class MyApp {
         }
     }
 
+    // Transforms a JSONArray to an existing set of elements.
     private static void jsonToSetOfElements(HashSet<MyElement> outSet, JSONArray jsonIn) {
 
         try {
@@ -79,6 +86,7 @@ public final class MyApp {
         }
     }
 
+    // Transforms a JSONArray to an existing set of links.
     private static  void jsonToSetOfLinks(HashSet<Link> outSet, JSONArray jsonIn) {
 
         try {
@@ -93,17 +101,16 @@ public final class MyApp {
         }
     }
 
+    // Saves the known and unknown elements into json.
     public static void save(){
         try {
             BufferedWriter known = new BufferedWriter(new FileWriter(paths[0]));
             String knownToSave = new Gson().toJson(knownElements);
-            System.out.println(knownToSave);
             known.write(knownToSave);
             known.close();
 
             BufferedWriter unknown = new BufferedWriter(new FileWriter(paths[1]));
             String unknownToSave = new Gson().toJson(unknownElements);
-            System.out.println(knownToSave);
             unknown.write(unknownToSave);
             unknown.close();
         }
@@ -112,6 +119,7 @@ public final class MyApp {
         }
     }
 
+    // Called when an element is merged. Changes the element to "known" and saves.
     public static void elementMerged(MyElement elem){
         unknownElements.remove(elem);
         knownElements.add(elem);

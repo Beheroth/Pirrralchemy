@@ -10,8 +10,8 @@ public class Context {
         create();
     }
 
+    // Here is where the alchemy performs.
     private void create(){
-
         Set<MyElement> knownElements  = MyApp.getKnownElements();
         Set<MyElement> elementsToMerge = new HashSet<MyElement>();
         for (String word: words) {
@@ -27,7 +27,7 @@ public class Context {
         MyElement out = (MyElement) merge.interpret();
         if (out != null){
             System.out.println("You created " + out.getName() + " !");
-            //MyApp.elementMerged(out);
+            MyApp.elementMerged(out);
             MyApp.askIfWin();
         }
     }
