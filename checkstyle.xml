@@ -4,7 +4,12 @@
           "https://checkstyle.org/dtds/configuration_1_3.dtd">
 
 <module name="MyChecker">
-        <module name="MethodName"/>
+        <module name="MethodName">
+   		  <property name="format" value="^[a-z]([a-zA-Z]+)*$"/>
+		</module>
+		<module name="LocalVariableName">
+		  <property name="format" value="^[a-z]([a-zA-Z]+)*$"/>
+		</module>
         <module name="EmptyLineSeparator">
           <property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
         </module>
