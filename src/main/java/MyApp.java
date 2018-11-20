@@ -10,14 +10,16 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashSet;
 
-
 //STATIC CLASS
 //This is the status of the application
 public final class MyApp {
     private static HashSet<MyElement> knownElements = new HashSet<MyElement>();
     private static HashSet<MyElement> unknownElements = new HashSet<MyElement>();
     private static HashSet<Link> links = new HashSet<Link>();
-    private static String[] paths = new String[]{"known.json", "unknown.json", "links.json"};
+    private static String[] paths = new String[]{
+            "src/main/resources/known.json",
+            "src/main/resources/unknown.json",
+            "src/main/resources/links.json"};
     private static JSONArray[] jsonObjectsBuffer = new JSONArray[3];
 
     // Gets an HashSet of the elements known by the user.
