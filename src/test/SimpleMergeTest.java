@@ -6,5 +6,6 @@ public class SimpleMergeTest {
 
     @Test
     public void interpret() {
-    }
+        //SimpleMerge simpleMerge = new SimpleMerge()
+}
 }
