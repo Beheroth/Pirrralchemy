@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC>
+
+<
+<module name="MethodName"/>
+<module name="EmptyLineSeparator">
+  <property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
+</module>
+<module name="WhitespaceAfter">
+  <property name="tokens" value="COMMA"/>
+</module>
