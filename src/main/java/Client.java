@@ -22,6 +22,7 @@ public class Client {
             s += scanner.nextLine();
             String[] parsed = parser(s);
             Context c = new Context(parsed);
+            c.create();
         }
     }
 

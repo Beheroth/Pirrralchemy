@@ -11,11 +11,10 @@ public class Context {
     //Constructor
     public Context(String[] words){
         this.words = words;
-        create();
     }
 
     // Here is where the alchemy performs.
-    private void create(){
+    public void create(){
         Set<MyElement> knownElements  = MyApp.getKnownElements();
         Set<MyElement> elementsToMerge = new HashSet<MyElement>();
         for (String word: words) {
@@ -23,7 +22,7 @@ public class Context {
                 elementsToMerge.add(knownElements.stream().filter(element -> word.equals(element.getName())).findAny().orElseThrow());
             }
             catch (Exception e) {
-                System.out.println("Unknown element.");
+                System.out.println("Tryed to merge an unknown element.");
             }
         }
 
