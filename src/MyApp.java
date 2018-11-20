@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashSet;
 
+
+//STATIC CLASS
+//This is the status of the application
 public final class MyApp {
     private static HashSet<MyElement> knownElements = new HashSet<MyElement>();
     private static HashSet<MyElement> unknownElements = new HashSet<MyElement>();

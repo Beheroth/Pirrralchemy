@@ -1,18 +1,1 @@
-[
-    {
-      "name" : "fire",
-      "id" : 1
-    },
-    {
-      "name" : "water",
-      "id" : 2
-    },
-    {
-      "name" : "earth",
-      "id" : 3
-    },
-    {
-      "name" : "air",
-      "id" : 4
-    }
-]
+[{"name":"mountain","id":11},{"name":"energy","id":7},{"name":"water","id":2},{"name":"hill","id":10},{"name":"mud","id":5},{"name":"earth","id":3},{"name":"air","id":4},{"name":"fire","id":1}]

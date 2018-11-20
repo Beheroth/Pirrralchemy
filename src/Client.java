@@ -1,19 +1,18 @@
 import java.util.Scanner;
 import java.util.Set;
 
+//First class called
+//Reads the input and send a parsed sentence to the Context class
 public class Client {
 
+    //Starting point of the application
     public static void main (String[] args) {
-
-        //Here implement load database
         MyApp.load();
+        clientControl();
+    }
 
-        //Here display the known elements
-        /*
-        for (MyElement elem: MyApp.getKnownElements()) {
-            System.out.print(elem.getName());
-        }
-        */
+    //Reads and executes command line control
+    private static void clientControl(){
         String s = "";
         while (!s.equals("stop")) {
             System.out.println(beautifullDislplayElements(MyApp.getKnownElements()));
@@ -26,10 +25,12 @@ public class Client {
         }
     }
 
+    //Cuts the sentence into words
     private static String[] parser(String input) {
         return input.split(" ");
     }
 
+    //Returns a string for a nice display of the elements
     private static String beautifullDislplayElements(Set<MyElement> elems){
         String result = "Known elements : \n";
         int i = 0;

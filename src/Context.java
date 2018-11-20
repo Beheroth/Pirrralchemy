@@ -1,10 +1,14 @@
 import java.util.HashSet;
 import java.util.Set;
 
+//Reads the parsed sentence
+//Tries to find a link between the two elements in the sentence
+//Merges them if a link is found
 public class Context {
 
     private String[] words;
 
+    //Constructor
     public Context(String[] words){
         this.words = words;
         create();
