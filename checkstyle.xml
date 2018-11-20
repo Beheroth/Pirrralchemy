@@ -20,5 +20,8 @@
 		<module name="LeftCurly">
 		    <property name="option" value="nlow"/>
 		</module> 
+		 <module name="MissingOverride">
+		    <property name="javaFiveCompatibility" value="true"/>
+		 </module>
 	</module> 	
 </module>
