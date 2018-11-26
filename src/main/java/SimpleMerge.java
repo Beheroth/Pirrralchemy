@@ -26,8 +26,8 @@ public class SimpleMerge extends NonTerminalExpression{
         Link fakeLink = new Link(ids);
 
         try {
-            Link foundLink = MyApp.getLinks().stream().filter(link -> fakeLink.compare(link)).findAny().orElseThrow();
-            MyElement out = MyApp.getUnknownElements().stream().filter(element -> element.getID().equals(foundLink.getCreated())).findAny().orElseThrow();
+            Link foundLink = MyApp.findLink(fakeLink); // Checks if the link exists
+            MyElement out = MyApp.getResult(foundLink); // Returns the resulting MyElement object from the link
             return out;
         } catch (Exception e) {
             System.out.println("Unknown Link");

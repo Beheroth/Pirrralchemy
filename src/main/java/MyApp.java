@@ -59,6 +59,16 @@ public final class MyApp {
         }
     }
 
+    // Searches and returns a specific link if it is contained in the attribute "links".
+    public static Link findLink(Link myLink){
+        return getLinks().stream().filter(link -> myLink.compare(link)).findAny().orElseThrow();
+    }
+
+    // Returns a MyElement object referenced as a result in "myLink".
+    public static MyElement getResult(Link myLink) {
+        return getUnknownElements().stream().filter(element -> element.getID().equals(myLink.getCreated())).findAny().orElseThrow();
+    }
+
     // Private constructor for static class.
     private MyApp () {
     }
