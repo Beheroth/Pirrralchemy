@@ -27,7 +27,7 @@ public class SimpleMerge extends NonTerminalExpression{
 
         try {
             Link foundLink = MyApp.findLink(fakeLink); // Checks if the link exists
-            MyElement out = MyApp.getResult(foundLink); // Returns the resulting MyElement object from the link
+            MyElement out = MyApp.getCreated(foundLink); // Returns the resulting MyElement object from the link
             return out;
         } catch (Exception e) {
             System.out.println("Unknown Link");

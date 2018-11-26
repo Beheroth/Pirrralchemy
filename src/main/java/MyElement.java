@@ -24,7 +24,6 @@ public class MyElement extends TerminalExpression {
         return this.id;
     }
 
-
     @Override
     public AbstractExpression interpret(){
         return this;
@@ -33,5 +32,9 @@ public class MyElement extends TerminalExpression {
     @Override
     public String toString() {
         return name;
+    }
+
+    public boolean compare(MyElement element){
+        return (element.getID().equals(this.getID()) & element.getName().equals(this.getName()));
     }
 }
