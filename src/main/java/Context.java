@@ -22,7 +22,7 @@ public class Context {
                 elementsToMerge.add(knownElements.stream().filter(element -> word.equals(element.getName())).findAny().orElseThrow());
             }
             catch (Exception e) {
-                System.out.println("Tryed to merge an unknown element.");
+                System.out.println("Tried to merge an unknown element.");
             }
         }
 

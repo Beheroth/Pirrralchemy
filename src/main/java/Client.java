@@ -15,7 +15,7 @@ public class Client {
     private static void clientControl(){
         String s = "";
         while (!s.equals("stop")) {
-            System.out.println(beautifullDislplayElements(MyApp.getKnownElements()));
+            System.out.println(beautifulDisplayElements(MyApp.getKnownElements()));
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter Elements to merge: ");
             s = scanner.next();
@@ -32,7 +32,7 @@ public class Client {
     }
 
     //Returns a string for a nice display of the elements
-    private static String beautifullDislplayElements(Set<MyElement> elems){
+    private static String beautifulDisplayElements(Set<MyElement> elems){
         String result = "Known elements : \n";
         int i = 0;
         for (MyElement elem: elems) {
