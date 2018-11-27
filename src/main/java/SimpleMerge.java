@@ -15,7 +15,7 @@ public class SimpleMerge extends NonTerminalExpression{
     //Interprets a merge based on elements he gets
     //Create a fake link and compare it to existent links
     //Move the element created from the unknown elements into the known elements
-    @Override
+    //@Override
     public AbstractExpression interpret() {
         Set<Integer> ids = new HashSet<Integer>();
 

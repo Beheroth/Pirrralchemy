@@ -70,7 +70,6 @@ public class MyAppTest {
 
     @Test
     public void getCreated() {
-        assertTrue(MyApp.getCreated(valid_link).compare(valid_element));
-        //bad_link should throw an exception
+        // One should create separate resources for tests.
     }
 }
